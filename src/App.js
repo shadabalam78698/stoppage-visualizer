@@ -29,6 +29,7 @@ const App = () => {
       header: true,
       complete: (result) => {
         const parsedData = parseData(result.data);
+        console.log('Parsed Data:', parsedData);  // Add logging for debugging
         setData(parsedData);
       }
     });
@@ -37,6 +38,7 @@ const App = () => {
   useEffect(() => {
     if (data.length > 0) {
       const detectedStoppages = detectStoppages(data, threshold);
+      console.log('Detected Stoppages:', detectedStoppages);  // Add logging for debugging
       setStoppages(detectedStoppages);
     }
   }, [data, threshold]);
